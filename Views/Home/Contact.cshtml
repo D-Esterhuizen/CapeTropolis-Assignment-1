@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div>
+    <h2>Contact Us</h2>
+</div>
+
+
+<div class="container mt-5">
+    <form>
+        <div class="form-group" style="margin-bottom:30px">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group" style="margin-bottom: 30px">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group" style="margin-bottom: 30px">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-dark" id="Send">Submit</button>
+    </form>
+</div>
+
+
+@section scripts{
+    <script>
+
+       
+        $(document).ready(function () {
+            $('#Send').click(function () {
+                alert("Thanks for wanting to get in contact we will contact you shortly regarding the matter!");
+            });
+
+        });
+    </script>}

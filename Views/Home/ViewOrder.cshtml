@@ -1,0 +1,66 @@
+﻿@model List<u23668475_HW01.Models.OrderModel>
+@{
+    ViewBag.Title = "View Orders";
+}
+
+<h2 class="justify-content-center d-flex">My Meal Orders</h2>
+
+<hr />
+
+<div class="container">
+    <div style="height: 300px; overflow-y: scroll;">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>OrderID</th>
+                    <th>Date and Time</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Meal Type</th>
+                    <th>Meal Description</th>
+                    <th>Meal Agent</th>
+                    <th>Hotel Residence</th>
+                </tr>
+            </thead>
+            <tbody id="OrdersTableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-md-2 d-flex justify-content-center">
+    <button onclick="window.location.href='@Url.Action("OrderMealPage", "Home")'" type="button" class="btn btn-outline-dark" id="ViewOrderBtn">Back to Order Page</button>
+
+</div>
+
+@section scripts {
+    <script>
+    $(document).ready(function () {
+        // Load saved orders from local storage
+        var orders = JSON.parse(localStorage.getItem('OrderData')) || [];
+
+        // Populate the table with orders
+        var tableBody = $('#OrdersTableBody');
+        orders.forEach(function (order) {
+            var row = '<tr>' +
+                '<td>' + order.GUID + '</td>' +
+                '<td>' + order.DateTime + '</td>' +
+                '<td>' + order.OFirstName + '</td>' +
+                '<td>' + order.OLastName + '</td>' +
+                '<td>' + order.MealType + '</td>' +
+                '<td>' + order.MealDesc + '</td>' +
+                '<td>' + order.MealAgent + '</td>' +
+                '<td>' + order.HotelResidence + '</td>' +
+                '</tr>';
+            tableBody.append(row);
+        });
+    });
+
+    
+    </script>
+}
+
+<style>
+    .table-condensed th, .table-condensed td {
+        padding: .5rem;
+    }
+</style>

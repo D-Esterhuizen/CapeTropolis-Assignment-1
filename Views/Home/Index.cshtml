@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <section aria-labelledby="aspnetTitle">
+                    <h1 id="title">Booking Your stay in CapeTropolis</h1>
+                    <p class="lead">Secure your spot a safe and affordable Accommodation, with a rich heritage and a history of creating lifelong memories!</p>
+                    <button id="getStartedButton" class="btn btn-primary btn-md btn-dark">Get Started!</button>
+                </section>
+            </div>
+            <div class="col-md-5">
+                <img src="~/Images/Image 1.jpg" class="img-fluid rounded-3" alt="Home Page image enticing">
+            </div>
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+    
+    <div >
+        <section id="hiddenSection" style="display: none">
+            <div class="row justify-content-center" >
+                <section class="col-md-2" aria-labelledby="gettingStartedTitle">
+                    <div class="d-flex flex-column align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-brightness-alt-high-fill" viewBox="0 0 16 16">
+                            <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3m8 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5m-13.5.5a.5.5 0 0 0 0-1h-2a.5.5 0 0 0 0 1zm11.157-6.157a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m-9.9 2.121a.5.5 0 0 0 .707-.707L3.05 5.343a.5.5 0 1 0-.707.707zM8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4" />
+                        </svg>
+                        <h2 id="gettingStartedTitle"></h2>
+                        <p><a class="btn btn-outline-dark" href=@Url.Action("CapeHoneyBooking" , "Home")>CapeHoney</a></p>
+                        <p class="text-center">
+                            We offer special complementary
+                            services like massage, games,
+                            Gym, swimming pool, evening
+                            buffet, special party nights.
+                        </p>
+                    </div>
+                </section>
+                <section class="col-md-2" aria-labelledby="gettingStartedTitle">
+                    <div class="d-flex flex-column align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cloud" viewBox="0 0 16 16">
+                            <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
+                        </svg>
+                        <h2 id="gettingStartedTitle"></h2>
+                        <p><a class="btn btn-outline-dark" href=@Url.Action("CapeIvoryBooking" , "Home")>CapeIvory</a></p>
+                        <p class="text-center">
+                            We offer exquisite rooms at
+                            affordable rates. You will get an
+                            unforgetable experience
+                        </p>
+                    </div>
+                </section>
+                <section class="col-md-2" aria-labelledby="gettingStartedTitle">
+                    <div class="d-flex flex-column align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-flower3" viewBox="0 0 16 16">
+                            <path d="M11.424 8c.437-.052.811-.136 1.04-.268a2 2 0 0 0-2-3.464c-.229.132-.489.414-.752.767C9.886 4.63 10 4.264 10 4a2 2 0 1 0-4 0c0 .264.114.63.288 1.035-.263-.353-.523-.635-.752-.767a2 2 0 0 0-2 3.464c.229.132.603.216 1.04.268-.437.052-.811.136-1.04.268a2 2 0 1 0 2 3.464c.229-.132.489-.414.752-.767C6.114 11.37 6 11.736 6 12a2 2 0 1 0 4 0c0-.264-.114-.63-.288-1.035.263.353.523.635.752.767a2 2 0 1 0 2-3.464c-.229-.132-.603-.216-1.04-.268M9 4a2 2 0 0 1-.045.205q-.059.2-.183.484a13 13 0 0 1-.637 1.223L8 6.142l-.135-.23a13 13 0 0 1-.637-1.223 4 4 0 0 1-.183-.484A2 2 0 0 1 7 4a1 1 0 1 1 2 0M3.67 5.5a1 1 0 0 1 1.366-.366 2 2 0 0 1 .156.142q.142.15.326.4c.245.333.502.747.742 1.163l.13.232-.265.002a13 13 0 0 1-1.379-.06 4 4 0 0 1-.51-.083 2 2 0 0 1-.2-.064A1 1 0 0 1 3.67 5.5m1.366 5.366a1 1 0 0 1-1-1.732l.047-.02q.055-.02.153-.044.202-.048.51-.083a13 13 0 0 1 1.379-.06q.135 0 .266.002l-.131.232c-.24.416-.497.83-.742 1.163a4 4 0 0 1-.327.4 2 2 0 0 1-.155.142M9 12a1 1 0 0 1-2 0 2 2 0 0 1 .045-.206q.058-.198.183-.483c.166-.378.396-.808.637-1.223L8 9.858l.135.23c.241.415.47.845.637 1.223q.124.285.183.484A1.3 1.3 0 0 1 9 12m3.33-6.5a1 1 0 0 1-.366 1.366 2 2 0 0 1-.2.064q-.202.048-.51.083c-.412.045-.898.061-1.379.06q-.135 0-.266-.002l.131-.232c.24-.416.497-.83.742-1.163a4 4 0 0 1 .327-.4q.07-.074.114-.11l.041-.032a1 1 0 0 1 1.366.366m-1.366 5.366a2 2 0 0 1-.155-.141 4 4 0 0 1-.327-.4A13 13 0 0 1 9.74 9.16l-.13-.232.265-.002c.48-.001.967.015 1.379.06q.308.035.51.083.098.024.153.044l.048.02a1 1 0 1 1-1 1.732zM8 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                        </svg>
+                        <h2 id="gettingStartedTitle"></h2>
+                        <p><a class="btn btn-outline-dark" href=@Url.Action("CapeSweetBooking" , "Home")>CapeSweet</a></p>
+                        <p class="text-center">At CapeSweet you will experience the mixture of sweetness and pleasure. We Promise you an unbeatable experience</p>
+                    </div>
+                </section>
+                <section class="col-md-2" aria-labelledby="gettingStartedTitle">
+                    <div class="d-flex flex-column align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-tsunami" viewBox="0 0 16 16">
+                            <path d="M.036 12.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65m0 2a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65M2.662 8.08c-.456 1.063-.994 2.098-1.842 2.804a.5.5 0 0 1-.64-.768c.652-.544 1.114-1.384 1.564-2.43.14-.328.281-.68.427-1.044.302-.754.624-1.559 1.01-2.308C3.763 3.2 4.528 2.105 5.7 1.299 6.877.49 8.418 0 10.5 0c1.463 0 2.511.4 3.179 1.058.67.66.893 1.518.819 2.302-.074.771-.441 1.516-1.02 1.965a1.88 1.88 0 0 1-1.904.27c-.65.642-.907 1.679-.71 2.614C11.076 9.215 11.784 10 13 10h2.5a.5.5 0 0 1 0 1H13c-1.784 0-2.826-1.215-3.114-2.585-.232-1.1.005-2.373.758-3.284L10.5 5.06l-.777.388a.5.5 0 0 1-.447 0l-1-.5a.5.5 0 0 1 .447-.894l.777.388.776-.388a.5.5 0 0 1 .447 0l1 .5.034.018c.44.264.81.195 1.108-.036.328-.255.586-.729.637-1.27.05-.529-.1-1.076-.525-1.495s-1.19-.77-2.477-.77c-1.918 0-3.252.448-4.232 1.123C5.283 2.8 4.61 3.738 4.07 4.79c-.365.71-.655 1.433-.945 2.16-.15.376-.301.753-.463 1.13" />
+                        </svg>
+                        <h2 id="gettingStartedTitle"></h2>
+                        <p><a class="btn btn-outline-dark" href=@Url.Action("CapeHiveBooking" , "Home")>CapeHive</a></p>
+                        <p class="text-center">Looking for a place to hide for a few days? CapeHive is the perfect place for you. Come and enjoy the serenity and ambiance of nature that out environment offers!</p>
+                    </div>
+                </section>
+                <section class="col-md-2" aria-labelledby="gettingStartedTitle">
+                    <div class="d-flex flex-column align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+                        </svg>
+                        <h2 id="gettingStartedTitle"></h2>
+                        <p><a class="btn btn-outline-dark" href=@Url.Action("CapeCowBooking" , "Home")>CapeCow </a></p>
+                        <p class="text-center"> Come to us, we have a variety of pleasurable services that are tailor made for the comfort of our Guests!</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div>
+        <hr>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <section class="col-md-4">
+                    <h2>CapeTropolis Tourism</h2>
+                    <p>
+                        Capetropolis, a haven of comfort and pleasure,
+                        beckons visitors with its diverse attractions.
+                        Nature lovers can revel in its pristine landscapes and coastal beauty,
+                        while wildlife enthusiasts can embark on thrilling safari adventures in the game reserve.
+                        History buffs will be enthralled by the island's rich heritage showcased through ancient ruins and colonial-era monuments.
+                        Luxury awaits in its exquisite hotels and restaurants,
+                        offering opulent accommodations and gourmet dining experiences.
+                        Meanwhile, shopping enthusiasts can indulge in the vibrant malls,
+                        brimming with a diverse array of boutiques and artisanal treasures.
+                        Capetropolis promises a memorable escape, blending adventure, 
+                        relaxation, and cultural immersion into an unforgettable experience.
+                    </p>
+                </section>
+
+                <section class="col-md-4">
+                    <img src="~/Images/MG_0649.jpg" class="img-fluid rounded-3" />
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+
+
+</main>
+@section Scripts {
+    <script>
+
+         
+        document.getElementById("getStartedButton").addEventListener("click", function () {
+            var hiddenSection = document.getElementById("hiddenSection");
+            if (hiddenSection.style.display === "none" || hiddenSection.style.display === "") {
+                hiddenSection.style.display = "flex";
+            } 
+        });
+
+    </script>
+    }
+
+

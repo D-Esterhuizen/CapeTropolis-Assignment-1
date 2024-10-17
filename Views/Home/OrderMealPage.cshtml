@@ -1,0 +1,281 @@
+﻿@model u23668475_HW01.Models.OrderModel
+@{
+    ViewBag.Title = "View";
+}
+
+<h2 class="justify-content-center d-flex">Place Meal Order</h2>
+
+<div class="d-flex justify-content-end" id="datetime"></div>
+
+<hr />
+
+<div class="container">
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.OFirstName, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.OFirstName, new { htmlAttributes = new { @class = "form-control", id = "FirstNameTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.OFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.MealType, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.DropDownListFor(model => model.MealType, new SelectList(new[]
+                    {
+                        new { Value = "", Text = "Select Meal Type" },
+                        new { Value = "Regular", Text = "Regular" },
+                        new { Value = "Vegan", Text = "Vegan" },
+                        new { Value = "Halal", Text = "Halal" },
+                        new { Value = "Kosher", Text = "Kosher" },
+                        new { Value = "Indian", Text = "Indian" },
+                        new { Value = "Gluten-Free", Text = "Gluten-Free" },
+                        new { Value = "Keto", Text = "Keto" },
+                        new { Value = "Paleo", Text = "Paleo" }
+                    }, "Value", "Text"), htmlAttributes: new { @class = "form-select", @id = "MealTypeDropdown" })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.MealType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.OLastName, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.OLastName, new { htmlAttributes = new { @class = "form-control", id = "LastNameTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.OLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.MealDesc, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.MealDesc, new { htmlAttributes = new { @class = "form-control", id = "MealDescripTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.MealDesc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.MealAgent, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.MealAgent, new { htmlAttributes = new { @class = "form-control", id = "MealAgentTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.MealAgent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.HotelResidence, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.DropDownListFor(model => model.HotelResidence, new SelectList(new[]
+                    {
+                        new { Value = "", Text = "Select Hotel Residence" },
+                        new { Value = "CapeHoney", Text = "CapeHoney" },
+                        new { Value = "CapeSweet", Text = "CapeSweet" },
+                        new { Value = "CapeHive", Text = "CapeHive" },
+                        new { Value = "CapeIvory", Text = "CapeIvory" },
+                        new { Value = "CapeCow", Text = "CapeCow" }
+                    }, "Value", "Text"), htmlAttributes: new { @class = "form-select", @id = "HotelResidenceDropdown" })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.HotelResidence, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="row" style="margin-bottom:30px;">
+
+        <div class="col-md-2 d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-dark" id="PlaceOrderBtn">Place Order</button>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+            <button onclick="window.location.href='@Url.Action("ViewOrder", "Home")'" type="button" class="btn btn-outline-dark" id="ViewOrderBtn">View Order(s)</button>
+
+        </div>
+    </div>
+</div>
+<div style="height: 300px; overflow-y: scroll;">
+    <table class="table table-condensed" id="CatererTable">
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-2 d-flex justify-content-center">
+    <button onclick="window.location.href='@Url.Action("Meals", "Home")'" type="button" class="btn btn-outline-dark" id="ViewOrderBtn">Return To Meal Management</button>
+
+</div>
+
+
+
+
+
+@section scripts {
+    <script>
+        //Function to update the date and time
+        function updateDateTime() {
+            //Get the current date and time
+            var currentDateTime = new Date();
+
+            
+            var formattedDateTime = currentDateTime.toLocaleString();
+
+            //Update the content of the element with id "datetime"
+            document.getElementById("datetime").innerText = "Date and Time: " + formattedDateTime;
+        }
+
+        //CallupdateDateTime function initially to display the current date and time
+        updateDateTime();
+
+        //Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+
+
+        $(document).ready(function () {
+            var tableData = localStorage.getItem('CatererData');
+            if (tableData) {
+                $('#CatererTable tbody').append(tableData); // Append the saved data to the tbody
+
+            }
+        });
+        //making sure the catere is actually a valid one
+        $(document).ready(function () {
+            $('#PlaceOrderBtn').on('click', function () {
+                FindCaterer();
+            });
+
+            function FindCaterer() {
+                var searchText = $('#MealAgentTextbox').val().trim().toLowerCase();
+                if (searchText === '') {
+                    alert('Please enter a Meal Agent.');
+                    return;
+                }
+
+                var ResultsFound = false;
+
+                $('#CatererTable tbody tr').each(function () {
+                    //Get the current row as a jQuery object
+                    var row = $(this);
+
+                    //Initialize a flag to indicate if the search text is found in the row
+                    var found = false;
+
+                    //Iterate over each cell in the current row
+                    row.find('td').each(function () {
+                        //Get the text content of the current cell, converted to lowercase
+                        var cellText = $(this).text().toLowerCase();
+
+                        //Check if the cell text includes the search text (also in lowercase)
+                        if (cellText.includes(searchText)) {
+                            //If the search text is found, set the flag to true
+                            found = true;
+
+                            //Set the global flag to indicate that results were found
+                            ResultsFound = true;
+
+                            //no need to check other cells in this row
+                            return false;
+                        }
+                    });
+                    if (found && $('#FirstNameTextbox').val() !== '' &&
+                        $('#LastNameTextbox').val() !== '' &&
+                        $('#MealTypeDropdown').val() !== '' &&
+                        $('#MealDescripTextbox').val() !== '' &&
+                        $('#MealAgentTextbox').val() !== '' &&
+                        $('#HotelResidenceDropdown').val() !== '') {
+                        SaveOrder();
+                        alert('Order successfully placed');
+                    }
+                    else {
+                        alert('you seem to be missing some information');
+                    }
+                });
+                if (!ResultsFound) {
+                    alert('No Caterer Found, Try Entering the first Name');
+                }
+            }
+        });
+        function GetDate() {
+            var TimeStamp = new Date();
+            var BetterDate = TimeStamp.toLocaleString();
+
+            return BetterDate;
+        }
+        function generateGUID() {
+            
+            const timestamp = Date.now().toString(16); // Convert current timestamp to hexadecimal
+            const random = Math.random().toString(16).substr(2, 6); // Generate random number and convert to hexadecimal
+
+            // Combine timestamp and random number to form the UID
+            return timestamp + random;
+        }
+        function SaveOrder() {
+            var OrderDetails = {
+                GUID: generateGUID(),
+                DateTime: GetDate(),
+                OFirstName: $('#FirstNameTextbox').val(),
+                OLastName: $('#LastNameTextbox').val(),
+                MealType: $('#MealTypeDropdown').val(),
+                MealDesc: $('#MealDescripTextbox').val(),
+                MealAgent: $('#MealAgentTextbox').val(),
+                HotelResidence: $('#HotelResidenceDropdown').val()
+            };
+            var Orders = JSON.parse(localStorage.getItem('OrderData')) || [];
+            Orders.push(OrderDetails);
+            localStorage.setItem('OrderData', JSON.stringify(Orders));
+
+            $('#FirstNameTextbox').val('');
+            $('#LastNameTextbox').val('');
+            $('#MealTypeDropdown').val('');
+            $('#MealDescripTextbox').val('');
+            $('#MealAgentTextbox').val('');
+            $('#HotelResidenceDropdown').val('');
+        }
+        
+    </script>
+}
+
+<style>
+    .form-control {
+        border-radius: .25rem;
+    }
+</style>
+

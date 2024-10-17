@@ -1,0 +1,436 @@
+﻿@model u23668475_HW01.Models.CatererModel
+
+@{
+    ViewBag.Title = "MealProviderPage";
+}
+
+<div class="d-flex justify-content-center align-items-center">
+    <h2>Meal Agents - Caterers</h2>
+</div>
+<hr />
+<div class="container">
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", id = "FirstNameTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", id = "SurnameTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", id = "EmailTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-auto">
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "col-form-label" })
+                </div>
+                <div class="col-auto">
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", id = "PhoneNumberTextbox" } })
+                </div>
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-6">
+            <div class="border p-3 rounded-2" style="width: 100%;">
+                <h5>Meal Services</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption1">
+                            <label class="form-check-label" for="mealOption1">Regular</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption2">
+                            <label class="form-check-label" for="mealOption2">Kosher</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption3">
+                            <label class="form-check-label" for="mealOption3">Vegan</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption4">
+                            <label class="form-check-label" for="mealOption4">Keto</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption5">
+                            <label class="form-check-label" for="mealOption5">Indian</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption6">
+                            <label class="form-check-label" for="mealOption6">Paleo</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption7">
+                            <label class="form-check-label" for="mealOption7">Halal</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mealOption8">
+                            <label class="form-check-label" for="mealOption8">Gluten-Free</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom:30px;">
+    <div class="col-md-1 d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-dark" id="AddCaterer">Add</button>
+    </div>
+    <div class="col-md-1 d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-dark" id="FindButton">Find</button>
+    </div>
+    <div class="col-md-1 d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-dark" id="EditBtn">Edit</button>
+    </div>
+    <div class="col-md-1 d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-dark" id="UpdateBtn">Update</button>
+    </div>
+    <div class="col-md-1 d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-dark" id="DeleteBtn">Delete</button>
+    </div>
+</div>
+
+<div class="container mt-3" style="margin-bottom: 30px;">
+    <div class="row">
+        <div class="col-md-8 ">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for caterers..." id="FindInput">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: 300px; overflow-y: scroll;">
+    <table class="table table-condensed" id="CatererTable">
+        <thead style="position: sticky; top: 0; background-color: lightgrey;">
+            <tr>
+                <th style="width: 5%;">ID</th>
+                <th style="width: 10%;">First Name</th>
+                <th style="width: 10%;">Surname</th>
+                <th style="width: 10%;">Email Address</th>
+                <th style="width: 10%;">Phone Number</th>
+                <th style="width: 10%;">Meal Options</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-2 d-flex justify-content-center ">
+    <button onclick="window.location.href='@Url.Action("Meals", "Home")'" type="button" class="btn btn-outline-dark" id="ReturnBtn">Return To Meal Management</button>
+
+</div>
+
+
+
+
+@section Scripts {
+    <script>
+
+//populating the table with the details from the input fields
+var idCounter = 0;
+var rowAdded = false;
+var selectedRow = null;
+
+$("#AddCaterer").click(function () {
+    var FirstName = $("#FirstNameTextbox").val();
+    var Surname = $("#SurnameTextbox").val();
+    var Email = $("#EmailTextbox").val();
+    var PhoneNumber = $("#PhoneNumberTextbox").val();
+
+    // Get checked meal options
+    var mealOptions = [];
+    $('input[type=checkbox]:checked').each(function () {
+        mealOptions.push($(this).next('label').text());
+    });
+    var mealOptionsString = mealOptions.join(', '); // Concatenate checked options with comma
+
+    // Validation
+    if (!FirstName || !Surname || !Email || !PhoneNumber) {
+        alert("All fields are required.");
+        return;
+    }
+    /*if (!mealOptionsString) {
+        alert("Select atleast One (1) Meal Option(s)"); // tried to make it so that you must select atleast one item
+        return;
+    }*/
+
+    // Check for duplicates
+    var duplicateFound = false;
+    $('#CatererTable tbody tr').each(function () {
+        var row = $(this);
+        var rowFirstName = row.find("td:eq(1)").text().toLowerCase();
+        var rowSurname = row.find("td:eq(2)").text().toLowerCase();
+        var rowEmail = row.find("td:eq(3)").text().toLowerCase();
+        var rowPhoneNumber = row.find("td:eq(4)").text().toLowerCase();
+
+        if (rowFirstName === FirstName.toLowerCase() &&
+            rowSurname === Surname.toLowerCase() &&
+            rowEmail === Email.toLowerCase() &&
+            rowPhoneNumber === PhoneNumber.toLowerCase()) {
+            duplicateFound = true;
+            return false; // Exit the .each loop
+        }
+    });
+
+    if (duplicateFound) {
+        alert("This entry already exists in the list.");
+        return;
+    }
+
+    $.get('@Url.Action("AddProduct", "Home")', { FirstName: FirstName, Surname: Surname, Email: Email, PhoneNumber: PhoneNumber })
+        .done(function (data) {
+            if (data === "OK") {
+                var CatererTable = $("#CatererTable tbody");
+                var newRow = $("<tr></tr>");
+                newRow.append($("<td></td>").text(idCounter++));
+                newRow.append($("<td></td>").text(FirstName));
+                newRow.append($("<td></td>").text(Surname));
+                newRow.append($("<td></td>").text(Email));
+                newRow.append($("<td></td>").text(PhoneNumber));
+                newRow.append($("<td></td>").text(mealOptionsString)); 
+                CatererTable.append(newRow);
+
+                $("#FirstNameTextbox").val('');
+                $("#SurnameTextbox").val('');
+                $("#EmailTextbox").val('');
+                $("#PhoneNumberTextbox").val('');
+                $("#mealOption1").prop("checked", false);
+                $("#mealOption2").prop("checked", false);
+                $("#mealOption3").prop("checked", false);
+                $("#mealOption4").prop("checked", false);
+                $("#mealOption5").prop("checked", false);
+                $("#mealOption6").prop("checked", false);
+                $("#mealOption7").prop("checked", false);
+                $("#mealOption8").prop("checked", false);
+
+                // Mark that a row has been added
+                rowAdded = true;
+
+                // Save table data to local storage
+                var tableData = $('#CatererTable').html();
+                localStorage.setItem('CatererData', tableData);
+                alert('Table data saved');
+            }
+        });
+});
+
+// Load data from local storage on page load
+$(document).ready(function () {
+    var tableData = localStorage.getItem('CatererData');
+    if (tableData) {
+        $('#CatererTable').html(tableData);
+        idCounter = $('#CatererTable tbody tr').length; // Update idCounter based on loaded rows
+    }
+
+    //Adding Click event handeler to list
+    $('#CatererTable').on('click', 'tr', function () {
+        if (selectedRow) {
+            selectedRow.css('background-color', '');
+        }
+        selectedRow = $(this);
+        selectedRow.css('background-color', 'lightblue');
+    });
+});
+
+//delete button functionality
+$("#DeleteBtn").click(function () {
+    if (selectedRow) {
+        selectedRow.remove();
+        selectedRow = null;
+
+        // Saving new table data to local storage
+        var tableData = $('#CatererTable').html();
+        localStorage.setItem('CatererData', tableData);
+        alert('Selected row deleted, stored table Updated');
+    } else {
+        alert('Please select a row to delete.');
+    }
+});
+
+//search function
+$(document).ready(function () {
+    $('#FindButton').on('click', function () {
+        FindCaterer();
+    });
+    $('#FindInput').keypress(function (e) {
+        if (e.which === 13) {
+            e.preventDefault();
+            FindCaterer();
+        }
+    });
+
+    function FindCaterer() {
+        var searchText = $('#FindInput').val().trim().toLowerCase();
+        if (searchText === '') {
+            alert('Please enter a search term.');
+            return; // Exit the function if search input is empty
+        }
+        var ResultsFound = false; //var to track if results are found
+        $('#CatererTable tbody tr').each(function () {
+            var row = $(this);
+            var found = false;
+            row.find('td').each(function () {
+                var cellText = $(this).text().toLowerCase();
+                if (cellText.includes(searchText)) {
+                    found = true;
+                    ResultsFound = true;
+                    return false;
+                }
+            });
+            if (found) {
+                row.css('color', 'red');
+                setTimeout(function () {
+                    row.css('color', '');
+                }, 10000);
+            } else {
+                row.css('color', '');
+            }
+        });
+        if (!ResultsFound) {
+            alert('No Caterer Found');
+        }
+    }
+});
+
+        // Edit button functionality
+        $("#EditBtn").click(function () {
+
+            if (selectedRow) {
+        // Get the text values from the cells of the selected row and store them in variables
+                var FirstName = selectedRow.find("td:eq(1)").text();  // Get name from the second cell (1) of the selected row
+                var Surname= selectedRow.find("td:eq(2)").text();
+                var Email= selectedRow.find("td:eq(3)").text();
+                var PhoneNumber =selectedRow.find("td:eq(4)").text();
+                var mealOptionsString = selectedRow.find("td:eq(5)").text();
+                
+                
+                //using the variables from above to populate the textboxes
+                $("#FirstNameTextbox").val(FirstName); //heres the anems of the textboxes, assign the val of the var to the .val()
+                $("#SurnameTextbox").val(Surname);
+                $("#EmailTextbox").val(Email);
+                $("#PhoneNumberTextbox").val(PhoneNumber);
+
+                // Uncheck all meal options first, incase any are selected
+                $('input[type=checkbox]').prop("checked", false);
+
+                // Check the meal options in the mealOptionsString
+                mealOptionsString.split(', ').forEach(function (mealOption) {//split the concatenation up again 
+                    $('label:contains(' + mealOption + ')').prev('input[type=checkbox]').prop("checked", true);//scoping if the label assigned to a specific check box is like the deconcatenated thing 
+                });
+                //disabling buttons 
+                $("#AddCaterer").prop("disabled", true);
+                $("#FindButton").prop("disabled", true);
+                $("#DeleteBtn").prop("disabled", true);
+                $("#Editbtn").prop("disabled", true);
+                $("#ReturnBtn").prop("disabled", true);
+
+            } else {
+                alert('Please select a row to edit');
+            }
+        });
+
+        $("#UpdateBtn").click(function () {
+            if (selectedRow) {
+                var FirstName = $("#FirstNameTextbox").val();
+                var Surname = $("#SurnameTextbox").val();
+                var Email = $("#EmailTextbox").val();
+                var PhoneNumber = $("#PhoneNumberTextbox").val();
+
+                //Get checked meal options
+                var mealOptions = [];
+                $('input[type=checkbox]:checked').each(function () {
+                    mealOptions.push($(this).next('label').text());
+                });
+                var mealOptionsString = mealOptions.join(', ');
+
+                //Validation
+                if (!FirstName || !Surname || !Email || !PhoneNumber) {
+                    alert("All fields are required.");
+                    return;
+                }
+
+                //Update selected row data
+                selectedRow.find("td:eq(1)").text(FirstName);
+                selectedRow.find("td:eq(2)").text(Surname);
+                selectedRow.find("td:eq(3)").text(Email);
+                selectedRow.find("td:eq(4)").text(PhoneNumber);
+                selectedRow.find("td:eq(5)").text(mealOptionsString);
+
+                //Clear input fields and uncheck all checkboxes
+                $("#FirstNameTextbox").val('');
+                $("#SurnameTextbox").val('');
+                $("#EmailTextbox").val('');
+                $("#PhoneNumberTextbox").val('');
+                $('input[type=checkbox]').prop("checked", false);
+
+                //Save updated table 
+                var tableData = $('#CatererTable').html();
+                localStorage.setItem('CatererData', tableData);
+                alert('Table data updated and saved');
+
+                //Make the buttons enabled again
+                
+                $("#AddCaterer").prop("disabled", false);
+                $("#FindButton").prop("disabled", false);
+                $("#DeleteBtn").prop("disabled", false);
+                $("#Editbtn").prop("disabled", false);
+                $("#ReturnBtn").prop("disabled", false);
+            } else {
+                alert('Please select a row to update.');
+            }
+        });
+
+
+    </script>
+}

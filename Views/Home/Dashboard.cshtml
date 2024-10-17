@@ -1,0 +1,340 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="container" id="CardContainer">
+    <label for="CardContainer" style="font-size: 30px;">Performance Summary</label>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Total Bookings &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 16 16">
+                            <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                        </svg>
+
+                    </h5>
+                    <p class="card-text" style="font-size: 20px;" id="BookingCount"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Total Guests  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                        </svg>
+                    </h5>
+                    <p class="card-text" style="font-size: 20px;" id="GuestCount"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Total Income &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-currency-exchange" viewBox="0 0 16 16">
+                            <path d="M0 5a5 5 0 0 0 4.027 4.905 6.5 6.5 0 0 1 .544-2.073C3.695 7.536 3.132 6.864 3 5.91h-.5v-.426h.466V5.05q-.001-.07.004-.135H2.5v-.427h.511C3.236 3.24 4.213 2.5 5.681 2.5c.316 0 .59.031.819.085v.733a3.5 3.5 0 0 0-.815-.082c-.919 0-1.538.466-1.734 1.252h1.917v.427h-1.98q-.004.07-.003.147v.422h1.983v.427H3.93c.118.602.468 1.03 1.005 1.229a6.5 6.5 0 0 1 4.97-3.113A5.002 5.002 0 0 0 0 5m16 5.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0m-7.75 1.322c.069.835.746 1.485 1.964 1.562V14h.54v-.62c1.259-.086 1.996-.74 1.996-1.69 0-.865-.563-1.31-1.57-1.54l-.426-.1V8.374c.54.06.884.347.966.745h.948c-.07-.804-.779-1.433-1.914-1.502V7h-.54v.629c-1.076.103-1.808.732-1.808 1.622 0 .787.544 1.288 1.45 1.493l.358.085v1.78c-.554-.08-.92-.376-1.003-.787zm1.96-1.895c-.532-.12-.82-.364-.82-.732 0-.41.311-.719.824-.809v1.54h-.005zm.622 1.044c.645.145.943.38.943.796 0 .474-.37.8-1.02.86v-1.674z" />
+                        </svg>
+                    </h5>
+                    <p class="card-text" style="font-size: 20px;" id="IncomeCount"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">
+                            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2" />
+                            <path d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a13 13 0 0 1 1.313-.805h.632z" />
+                        </svg>
+                    </h5>
+                    <p class="card-text" id="DateCount" style="font-size: 20px;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: auto; overflow-y: scroll; margin-top:100px;" id="TableID">
+    <label for="HotelTotalTable" style="font-size: 30px;">Sales Performance</label>
+    <table class="table table-condensed table-bordered" id="HotelTotalTable">
+        <thead>
+            <tr>
+                <th>Hotel</th>
+                <th>Bookings</th>
+                <th>Income</th>
+                <th>Logo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&commat;CapeHoney</td>
+                <td id="HoneyBookings"></td>
+                <td id="HoneyIncome"></td>
+                <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-brightness-alt-high-fill" viewBox="0 0 16 16">
+                        <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3m8 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5m-13.5.5a.5.5 0 0 0 0-1h-2a.5.5 0 0 0 0 1zm11.157-6.157a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m-9.9 2.121a.5.5 0 0 0 .707-.707L3.05 5.343a.5.5 0 1 0-.707.707zM8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4" />
+                    </svg>
+                </td>
+
+            </tr>
+            <tr>
+                <td>&commat;CapeIvory</td>
+                <td id="IvoryBookings"></td>
+                <td id="IvoryIncome"></td>
+                <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cloud" viewBox="0 0 16 16">
+                        <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
+                    </svg>
+                </td>
+            </tr>
+            <tr>
+                <td>&commat;CapeSweet</td>
+                <td id="SweetBookings"></td>
+                <td id="SweetIncome"></td>
+                <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-flower3" viewBox="0 0 16 16">
+                        <path d="M11.424 8c.437-.052.811-.136 1.04-.268a2 2 0 0 0-2-3.464c-.229.132-.489.414-.752.767C9.886 4.63 10 4.264 10 4a2 2 0 1 0-4 0c0 .264.114.63.288 1.035-.263-.353-.523-.635-.752-.767a2 2 0 0 0-2 3.464c.229.132.603.216 1.04.268-.437.052-.811.136-1.04.268a2 2 0 1 0 2 3.464c.229-.132.489-.414.752-.767C6.114 11.37 6 11.736 6 12a2 2 0 1 0 4 0c0-.264-.114-.63-.288-1.035.263.353.523.635.752.767a2 2 0 1 0 2-3.464c-.229-.132-.603-.216-1.04-.268M9 4a2 2 0 0 1-.045.205q-.059.2-.183.484a13 13 0 0 1-.637 1.223L8 6.142l-.135-.23a13 13 0 0 1-.637-1.223 4 4 0 0 1-.183-.484A2 2 0 0 1 7 4a1 1 0 1 1 2 0M3.67 5.5a1 1 0 0 1 1.366-.366 2 2 0 0 1 .156.142q.142.15.326.4c.245.333.502.747.742 1.163l.13.232-.265.002a13 13 0 0 1-1.379-.06 4 4 0 0 1-.51-.083 2 2 0 0 1-.2-.064A1 1 0 0 1 3.67 5.5m1.366 5.366a1 1 0 0 1-1-1.732l.047-.02q.055-.02.153-.044.202-.048.51-.083a13 13 0 0 1 1.379-.06q.135 0 .266.002l-.131.232c-.24.416-.497.83-.742 1.163a4 4 0 0 1-.327.4 2 2 0 0 1-.155.142M9 12a1 1 0 0 1-2 0 2 2 0 0 1 .045-.206q.058-.198.183-.483c.166-.378.396-.808.637-1.223L8 9.858l.135.23c.241.415.47.845.637 1.223q.124.285.183.484A1.3 1.3 0 0 1 9 12m3.33-6.5a1 1 0 0 1-.366 1.366 2 2 0 0 1-.2.064q-.202.048-.51.083c-.412.045-.898.061-1.379.06q-.135 0-.266-.002l.131-.232c.24-.416.497-.83.742-1.163a4 4 0 0 1 .327-.4q.07-.074.114-.11l.041-.032a1 1 0 0 1 1.366.366m-1.366 5.366a2 2 0 0 1-.155-.141 4 4 0 0 1-.327-.4A13 13 0 0 1 9.74 9.16l-.13-.232.265-.002c.48-.001.967.015 1.379.06q.308.035.51.083.098.024.153.044l.048.02a1 1 0 1 1-1 1.732zM8 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                    </svg>
+                </td>
+            </tr>
+            <tr>
+                <td>&commat;CapeHive</td>
+                <td id="HiveBookings"></td>
+                <td id="HiveIncome"></td>
+                <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-tsunami" viewBox="0 0 16 16">
+                        <path d="M.036 12.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65m0 2a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65M2.662 8.08c-.456 1.063-.994 2.098-1.842 2.804a.5.5 0 0 1-.64-.768c.652-.544 1.114-1.384 1.564-2.43.14-.328.281-.68.427-1.044.302-.754.624-1.559 1.01-2.308C3.763 3.2 4.528 2.105 5.7 1.299 6.877.49 8.418 0 10.5 0c1.463 0 2.511.4 3.179 1.058.67.66.893 1.518.819 2.302-.074.771-.441 1.516-1.02 1.965a1.88 1.88 0 0 1-1.904.27c-.65.642-.907 1.679-.71 2.614C11.076 9.215 11.784 10 13 10h2.5a.5.5 0 0 1 0 1H13c-1.784 0-2.826-1.215-3.114-2.585-.232-1.1.005-2.373.758-3.284L10.5 5.06l-.777.388a.5.5 0 0 1-.447 0l-1-.5a.5.5 0 0 1 .447-.894l.777.388.776-.388a.5.5 0 0 1 .447 0l1 .5.034.018c.44.264.81.195 1.108-.036.328-.255.586-.729.637-1.27.05-.529-.1-1.076-.525-1.495s-1.19-.77-2.477-.77c-1.918 0-3.252.448-4.232 1.123C5.283 2.8 4.61 3.738 4.07 4.79c-.365.71-.655 1.433-.945 2.16-.15.376-.301.753-.463 1.13" />
+                    </svg>
+                </td>
+            </tr>
+            <tr>
+                <td>&commat;CapeCow</td>
+                <td id="CowBookings"></td>
+                <td id="CowIncome"></td>
+                <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                        <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+                    </svg>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="height: auto; overflow-y: scroll; margin-top:100px;">
+    <label for="CustomersTable" style="font-size: 30px;">Customers</label>
+    <table id="CustomersTable" class="table table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Booking Date</th>
+                <th>Phone Number</th>
+                <th>Hotel</th>
+                <th>Room Type</th>
+                <th>Number of guests in the room</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-outline-dark" id="Export"> Export Table</button>
+</div>
+
+
+   
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var bookingData = localStorage.getItem('BookingData');
+
+            var bookings = JSON.parse(bookingData);
+
+            let BookingsCount = 0;
+            let GuestCount = 0;
+            let IncomeCount = 0;
+
+            if (bookings) {
+                // Iterate over each booking in the array
+                bookings.forEach(booking => {
+                    BookingsCount++; // Increment the total bookings count
+
+                    // Increment the total guest count for each booking
+
+                    var DGuestCount = parseFloat(booking.BGuestCount);
+                    GuestCount += DGuestCount;
+                    // Extract the room price from the booking and add it to the total income
+
+                    var roomPrice = parseFloat(booking.BRoomPrice.replace('R', '').replace(',', ''));
+                    IncomeCount += roomPrice;
+                });
+            }
+
+            // Update the text content of the corresponding HTML elements with the calculated counts
+            document.getElementById('IncomeCount').innerText = 'R' + IncomeCount;
+            document.getElementById('GuestCount').innerText = GuestCount + ' ' + 'Guests';
+            document.getElementById('BookingCount').innerText = BookingsCount;
+            document.getElementById('DateCount').innerText = GetDate();
+
+            //appending new rows tot he customer table
+
+            var tableBody = document.querySelector('#CustomersTable tbody');
+
+            bookings.forEach(booking => {
+                var row = document.createElement('tr');
+
+                var nameCell = document.createElement('td');
+                nameCell.textContent = booking.BFirstName + ' ' + booking.BSurname;
+                row.appendChild(nameCell);
+
+                var bookingDateCell = document.createElement('td');
+                bookingDateCell.textContent = booking.Date;
+                row.appendChild(bookingDateCell);
+
+                var phoneCell = document.createElement('td');
+                phoneCell.textContent = booking.BTelephoneNumber;
+                row.appendChild(phoneCell);
+
+                var hotelCell = document.createElement('td');
+                hotelCell.textContent = booking.Hotel;
+                row.appendChild(hotelCell);
+
+                var roomTypeCell = document.createElement('td');
+                roomTypeCell.textContent = booking.BRoomType;
+                row.appendChild(roomTypeCell);
+
+                var guestCountCell = document.createElement('td');
+                guestCountCell.textContent = booking.BGuestCount + ' Guests';
+                row.appendChild(guestCountCell);
+
+                var amountCell = document.createElement('td');
+                amountCell.textContent = booking.BRoomPrice;
+                row.appendChild(amountCell);
+
+                tableBody.appendChild(row);
+            });
+
+
+
+        });
+        function GetDate() {
+            var TimeStamp = new Date();
+            var BetterDate = TimeStamp.toLocaleDateString();
+
+            return BetterDate;
+        }
+
+
+        function updateHotelStats() {
+            var bookingData = localStorage.getItem('BookingData');
+            var bookings = JSON.parse(bookingData);
+
+            if (!bookings) return;
+
+            let hotelStats = {
+                CapeHoney: { bookings: 0, income: 0 },
+                CapeIvory: { bookings: 0, income: 0 },
+                CapeSweet: { bookings: 0, income: 0 },
+                CapeHive: { bookings: 0, income: 0 },
+                CapeCow: { bookings: 0, income: 0 }
+            };
+
+            bookings.forEach(booking => {
+                if (hotelStats.hasOwnProperty(booking.Hotel)) {
+                    hotelStats[booking.Hotel].bookings++;
+                    var HRoomPrice = parseFloat(booking.BRoomPrice.replace('R', '').replace(',', ''));
+                    hotelStats[booking.Hotel].income += HRoomPrice;
+                }
+            });
+
+            $("#HoneyBookings").text(hotelStats.CapeHoney.bookings);
+            $("#HoneyIncome").text('R' + hotelStats.CapeHoney.income);
+
+            $("#IvoryBookings").text(hotelStats.CapeIvory.bookings);
+            $("#IvoryIncome").text('R' + hotelStats.CapeIvory.income);
+
+            $("#SweetBookings").text(hotelStats.CapeSweet.bookings);
+            $("#SweetIncome").text('R' + hotelStats.CapeSweet.income);
+
+            $("#HiveBookings").text(hotelStats.CapeHive.bookings);
+            $("#HiveIncome").text('R' + hotelStats.CapeHive.income);
+
+            $("#CowBookings").text(hotelStats.CapeCow.bookings);
+            $("#CowIncome").text('R' + hotelStats.CapeCow.income);
+        }
+
+        $(document).ready(function () {
+            updateHotelStats();
+        });
+
+
+        function exportTableToText() {
+            //Get the table element by ID
+            var table = document.getElementById('CustomersTable');
+
+            //Get all rows in the table
+            var rows = table.getElementsByTagName('tr');
+
+            //Initialize an empty string to hold the text data
+            var text = '';
+
+            //Loop through each row in the table
+            for (var i = 0; i < rows.length; i++) {
+                //Get all cells in current row
+                var cells = rows[i].getElementsByTagName('td');
+
+                //Loop through each cell in the row
+                for (var j = 0; j < cells.length; j++) {
+                    //Append the text content of the cell to the text string
+                    //Use a tab character ('\t') to separate cell values
+                    text += cells[j].textContent + '\t';
+                }
+                //Append a newline character ('\n') to separate rows
+                text += '\n';
+            }
+
+            //Create a temporary anchor element to trigger the download
+            var tempElement = document.createElement('a');
+
+            //Set the href attribute to the text data, encoded as a URI component
+            tempElement.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+
+            //Set the download attribute to specify the filename
+            tempElement.download = 'table.txt';
+
+            //Hide the element
+            tempElement.style.display = 'none';
+
+            //Append the element to the document body
+            document.body.appendChild(tempElement);
+
+            //Simulate a click on the element to trigger the download
+            tempElement.click();
+
+            //Remove the temporary element from the document
+            document.body.removeChild(tempElement);
+        }
+
+
+        $("#Export").click(function () {
+
+            exportTableToText();
+
+        });
+    </script>
+
+
+

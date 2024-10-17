@@ -1,0 +1,208 @@
+﻿@model List<u23668475_HW01.Models.Room>
+@{
+    ViewBag.Title = "CapeSweetBooking";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-2">
+                <h2>
+                    &commat;CapeSweet
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-flower3" viewBox="0 0 16 16">
+                        <path d="M11.424 8c.437-.052.811-.136 1.04-.268a2 2 0 0 0-2-3.464c-.229.132-.489.414-.752.767C9.886 4.63 10 4.264 10 4a2 2 0 1 0-4 0c0 .264.114.63.288 1.035-.263-.353-.523-.635-.752-.767a2 2 0 0 0-2 3.464c.229.132.603.216 1.04.268-.437.052-.811.136-1.04.268a2 2 0 1 0 2 3.464c.229-.132.489-.414.752-.767C6.114 11.37 6 11.736 6 12a2 2 0 1 0 4 0c0-.264-.114-.63-.288-1.035.263.353.523.635.752.767a2 2 0 1 0 2-3.464c-.229-.132-.603-.216-1.04-.268M9 4a2 2 0 0 1-.045.205q-.059.2-.183.484a13 13 0 0 1-.637 1.223L8 6.142l-.135-.23a13 13 0 0 1-.637-1.223 4 4 0 0 1-.183-.484A2 2 0 0 1 7 4a1 1 0 1 1 2 0M3.67 5.5a1 1 0 0 1 1.366-.366 2 2 0 0 1 .156.142q.142.15.326.4c.245.333.502.747.742 1.163l.13.232-.265.002a13 13 0 0 1-1.379-.06 4 4 0 0 1-.51-.083 2 2 0 0 1-.2-.064A1 1 0 0 1 3.67 5.5m1.366 5.366a1 1 0 0 1-1-1.732l.047-.02q.055-.02.153-.044.202-.048.51-.083a13 13 0 0 1 1.379-.06q.135 0 .266.002l-.131.232c-.24.416-.497.83-.742 1.163a4 4 0 0 1-.327.4 2 2 0 0 1-.155.142M9 12a1 1 0 0 1-2 0 2 2 0 0 1 .045-.206q.058-.198.183-.483c.166-.378.396-.808.637-1.223L8 9.858l.135.23c.241.415.47.845.637 1.223q.124.285.183.484A1.3 1.3 0 0 1 9 12m3.33-6.5a1 1 0 0 1-.366 1.366 2 2 0 0 1-.2.064q-.202.048-.51.083c-.412.045-.898.061-1.379.06q-.135 0-.266-.002l.131-.232c.24-.416.497-.83.742-1.163a4 4 0 0 1 .327-.4q.07-.074.114-.11l.041-.032a1 1 0 0 1 1.366.366m-1.366 5.366a2 2 0 0 1-.155-.141 4 4 0 0 1-.327-.4A13 13 0 0 1 9.74 9.16l-.13-.232.265-.002c.48-.001.967.015 1.379.06q.308.035.51.083.098.024.153.044l.048.02a1 1 0 1 1-1 1.732zM8 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                    </svg>
+                </h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="BfirstName">First Name</label>
+                            <input type="text" class="form-control" id="BfirstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Bsurname">Surname</label>
+                            <input type="text" class="form-control" id="Bsurname" placeholder="Surname" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Binitials">Initials</label>
+                            <input type="text" class="form-control" id="Binitials" placeholder="Initials" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Bemail">Email</label>
+                            <input type="email" class="form-control" id="Bemail" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Baddress">Address</label>
+                        <input type="text" class="form-control" id="Baddress" placeholder="Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Btelephone">Telephone Number</label>
+                        <input type="tel" class="form-control" id="Btelephone" placeholder="Telephone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Bdob">Date of Birth</label>
+                            <input type="date" class="form-control" id="Bdob" placeholder="Date of Birth" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="BidType">Identification Type</label>
+                            <select class="form-control" id="BidType">
+                                <option selected>ID Type</option>
+                                <option value="1">RSA ID Number</option>
+                                <option value="2">Passport Number</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="BidNumber">ID Number</label>
+                        <input type="text" class="form-control" id="BidNumber" placeholder="ID Number" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="BroomType">Room Type</label>
+                            <select class="form-control" id="BroomType">
+                                <option selected>Room Type</option>
+                                @foreach (var r in Model)
+                                {
+                                    <option value="@r.RoomID" data-price="@r.PricPN" data-features="@r.Features">@r.RoomType</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="BroomPrice">Price per night</label>
+                            <input type="text" class="form-control" id="BroomPrice" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="BroomFeatures">Room Features</label>
+                        <textarea class="form-control" id="BroomFeatures" readonly rows="3"></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="BmealReq">Meal Requirements</label>
+                        <select class="form-control" id="BmealReq">
+                            <option selected>Meal Requirements</option>
+                            @foreach (var r in Model)
+                            {
+                                <option value="@r." data-price="@r.PricPN" data-features="@r.Features">@r.RoomType</option>
+                            }
+                        </select>
+                    </div>
+                    <div class=" form-group col-md-6">
+                        <label for="guestCountInput">Number of Guests(Max 4 Per Room):</label>
+                        <input class=" form-control" type="number" id="guestCountInput" min="0" max="4" value="0" required />
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <button type="submit" class="btn btn-outline-dark" id="SubmitBooking">Confirm Booking</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner mt-1 vh-100 overflow-hidden">
+                        <div class="carousel-item active rounded">
+                            <img src="~/Images/IMG 6.jpeg" class="d-block w-100 h-100 object-fit-cover" alt="dev 1">
+                        </div>
+                        <div class="carousel-item rounded">
+                            <img src="~/Images/IMG 7.jpg" class="d-block w-100 h-100 object-fit-cover" alt="dev 2">
+                        </div>
+                        <div class="carousel-item rounded">
+                            <img src="~/Images/MG_0649.jpg" class="d-block w-100 h-100 object-fit-cover" alt="dev 3">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#BroomType').change(function () {
+            var selectedOption = $(this).find('option:selected');
+            var price = selectedOption.data('price');
+            var features = selectedOption.data('features');
+            $('#BroomPrice').val("R" + price);
+            $('#BroomFeatures').val(features);
+        });
+
+        $('#bookingForm').submit(function (e) {
+            e.preventDefault();
+
+            var BookingDetails = {
+                Date: GetDate(),
+                BookingId: generateGUID(),
+                Hotel: 'CapeSweet',
+                BFirstName: $('#BfirstName').val(),
+                BSurname: $('#Bsurname').val(),
+                BInitials: $('#Binitials').val(),
+                BEmail: $('#Bemail').val(),
+                BAddress: $('#Baddress').val(),
+                BTelephoneNumber: $('#Btelephone').val(),
+                BIdType: $('#BidType').val(),
+                BIdNumber: $('#BidNumber').val(),
+                BRoomType: $('#BroomType').val(),
+                BRoomPrice: $('#BroomPrice').val(),
+                BRoomFeatures: $('#BroomFeatures').val(),
+                BDOB: $('#Bdob').val(),
+                BGuestCount: $('#guestCountInput').val()
+            };
+
+            var Booking = JSON.parse(localStorage.getItem('BookingData')) || [];
+            Booking.push(BookingDetails);
+            localStorage.setItem('BookingData', JSON.stringify(Booking));
+
+            // Reset the form fields
+            $('#bookingForm')[0].reset();
+            $('#BroomPrice').val('');
+            $('#BroomFeatures').val('');
+
+
+            window.location.href = '@Url.Action("BookingConfirmation", "Home")';
+        });
+    });
+
+    function GetDate() {
+        var TimeStamp = new Date();
+        var BetterDate = TimeStamp.toLocaleString();
+
+        return BetterDate;
+    }
+    function generateGUID() {
+
+        const timestamp = Date.now().toString(16); // Convert current timestamp to hexadecimal
+        const random = Math.random().toString(16).substr(2, 6); // Generate random number and convert to hexadecimal
+
+        // Combine timestamp and random number to form the UID
+        return timestamp + random;
+    }
+
+    </script>
+</body>
